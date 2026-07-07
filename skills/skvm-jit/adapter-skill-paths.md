@@ -19,6 +19,17 @@ a skill itself.
 Source of truth: Claude Code skill-loader documentation. The first match wins
 in the order above.
 
+## Codex
+
+1. User-scoped:     `$CODEX_HOME/skills/<name>/`  (default `~/.codex/skills/<name>/`)
+
+Source of truth: `src/adapters/codex.ts` writes discover-mode skills to
+`<sandbox CODEX_HOME>/skills/<name>/SKILL.md`, which is the user-scoped
+location Codex's own loader reads (confirmed against Codex CLI 0.142.3). The
+sandbox copy is a per-run bench artifact; the persistent path a user's own
+Codex reads is `$CODEX_HOME/skills/<name>/` (defaults to `~/.codex/skills/`).
+Codex has no documented project-scoped location in this version.
+
 ## opencode
 
 1. Project-scoped:  `./.opencode/skills/<name>/`
